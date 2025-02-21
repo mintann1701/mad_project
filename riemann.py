@@ -1,5 +1,5 @@
 #Question 2
-
+# These functions below will approximate the Riemann Integrals
 #left_endpoint function
 import numpy as np
 def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
@@ -8,8 +8,9 @@ def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
     return np.sum(width * height)
 
 def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
-    vertices1 = np.diff(x_vals)
-    vertices2 = func(x_vals)
+    dx = np.diff(x_vals)
+    f_values = func(x_vals)
+
     return np.sum((f_values[:-1] + f_values[1:]) / 2 * dx)
 
 #simpson function
