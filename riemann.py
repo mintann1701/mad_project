@@ -12,7 +12,6 @@ def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
     vertices2 = func(x_vals)
     return np.sum((f_values[:-1] + f_values[1:]) / 2 * dx)
 
-
 #simpson function
 def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:
     a = x_vals[0]
@@ -21,5 +20,4 @@ def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:
     calculate_integral = ((b-a)/6) * (func(a) + func(b) + 4*func(mid_point))
     return calculate_integral
 
-print(simpson([1, 0, 3], left_endpoint))
 
