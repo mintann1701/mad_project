@@ -9,9 +9,9 @@ def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
 
 def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
     dx = np.diff(x_vals)
-    f_values = func(x_vals)
+    fvalues = func(x_vals)
 
-    return np.sum((f_values[:-1] + f_values[1:]) / 2 * dx)
+    return np.sum((fvalues[:-1] + fvalues[1:]) / 2 * dx)
 
 #simpson function
 def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:

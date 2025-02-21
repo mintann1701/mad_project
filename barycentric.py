@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def get_barycentric_coordinates(triangle_coordinates, point_coordinates):
     """
     Calculates the barycentric coordinates of a point with respect to a triangle. Creates a 2x3 array of the coordinates
@@ -29,5 +28,15 @@ def get_barycentric_coordinates(triangle_coordinates, point_coordinates):
     # Return barycentric coordinates as a numpy array
     return np.array([lambda1, lambda2, lambda3])
 
+def get_cartesian_coordinates(triangle_coordinates, barycentric_coordinates):
+    """
+    The barycentric coordinates is a 1x3 NumPy array representing (lambda1, lambda2, lambda3
+    We want to convert barycentric coordinates to Cartesian coordinates
+    """
+    barycentric_coordinates = np.dot(triangle_coordinates, barycentric_coordinates)
+    return np.array(barycentric_coordinates)
 
-
+def is_inside_triangle(triangle_coordinates, point_coordinates):
+    barycentric_coords = get_barycentric_coordinates(triangle_coordinates, point_coordinates)
+    # Check if all barycentric coordinates are between 0 and 1
+    return np.all((barycentric_coords >= 0) & (barycentric_coords <= 1))
