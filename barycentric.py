@@ -2,7 +2,6 @@ from operator import truediv
 
 import numpy as np
 
-
 def get_barycentric_coordinates(triangle_coordinates, point_coordinates):
     """
     Calculates the barycentric coordinates of a point with respect to a triangle. Creates a 2x3 array of the coordinates
@@ -42,19 +41,7 @@ def get_cartesian_coordinates(triangle_coordinates, barycentric_coordinates):
     return np.array(barycentric_coordinates)
 
 def is_inside_triangle(triangle_coordinates, point_coordinates):
-    A = (triangle_coordinates[0:0], triangle_coordinates[1:0])
-    B = (triangle_coordinates[0:1], triangle_coordinates[1:1])
-    C = (triangle_coordinates[0:2], triangle_coordinates[1:2])
-    P = point_coordinates
-    v0 = (B[0] - A[0], B[1] - A[1])
-    v1 = (C[0] - A[0], C[1] - A[1])
-    v2 = (P[0] - A[0], P[1] - A[1])
-    dot00 = v0[0]*v0[0] + v0[1]*v0[1]
-    dot01 = v0[0]*v1[0] + v0[1]*v1[1]
-    dot02 = v0[0]*v2[0] + v0[1]*v2[1]
-    dot11 = v0[0]*v1[0] + v1[1]*v1[1]
-    dot12 = v0[0]*v2[0] + v1[1]*v2[1]
-    inv_denom = 1/(dot00*dot11 - dot01*dot01)
-    u = (dot11*dot02 - dot01*dot12)*inv_denom
-    v = (dot00*dot12 - dot01*dot02)*inv_denom
-    return (u >= 0) and (v >= 0) and (u + v <= 1)
+    lambda1 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[0]
+    lambda2 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[1]
+    lambda3 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[2]
+    return lambda1 > 0 and lambda2 > 0 and lambda3 > 0
