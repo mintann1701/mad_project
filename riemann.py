@@ -1,8 +1,6 @@
 #This is part 2
 import numpy as np
-
-#left_point function
-def left_point(x_vals: np.ndarray, func: np.ufunc) -> float:
+def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
     width = np.diff(x_vals)
     height = func((x_vals[:-1]))
     return np.sum(width * height)
@@ -21,3 +19,5 @@ def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:
     mid_point = (a + b) / 2
     calculate_integral = ((b-a)/6) * (func(a) + func(b) + 4*func(mid_point))
     return calculate_integral
+
+print(simpson([1, 0, 3], left_endpoint))
