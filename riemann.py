@@ -7,6 +7,7 @@ def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
     height = func((x_vals[:-1]))
     return np.sum(width * height)
 
+#trapezoid function
 def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
     dx = np.diff(x_vals)
     fvalues = func(x_vals)
