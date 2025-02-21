@@ -1,4 +1,7 @@
+from operator import truediv
+
 import numpy as np
+
 
 def get_barycentric_coordinates(triangle_coordinates, point_coordinates):
     """
@@ -25,8 +28,10 @@ def get_barycentric_coordinates(triangle_coordinates, point_coordinates):
     # Calculate lambda 3
     lambda3 = 1 - lambda1 - lambda2
 
+
     # Return barycentric coordinates as a numpy array
     return np.array([lambda1, lambda2, lambda3])
+
 
 def get_cartesian_coordinates(triangle_coordinates, barycentric_coordinates):
     """
@@ -37,4 +42,11 @@ def get_cartesian_coordinates(triangle_coordinates, barycentric_coordinates):
     return np.array(barycentric_coordinates)
 
 def is_inside_triangle(triangle_coordinates, point_coordinates):
-   
+    lambda1 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[0]
+    lambda2 = get_barycentric_coordinates(triangle_coordinates, point_coordinates)[1]
+    lambda3 = get_barycentric_coordinates(triangle_coordinates, point_coordinates)[2]
+    A1 = (triangle_coordinates[0:0], triangle_coordinates[1:0])
+    A2 = (triangle_coordinates[0:1], triangle_coordinates[1:1])
+    A3 = (triangle_coordinates[0:2], triangle_coordinates[1:2])
+    P = point_coordinates
+    return lambda1*A1 + lambda2*A2 + lambda3*A3 == P
