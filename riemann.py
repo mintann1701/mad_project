@@ -1,4 +1,5 @@
-#This is part 2
+#Question 2
+#left_endpoint function
 import numpy as np
 def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
     width = np.diff(x_vals)
@@ -21,3 +22,4 @@ def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:
     return calculate_integral
 
 print(simpson([1, 0, 3], left_endpoint))
+
