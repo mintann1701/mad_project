@@ -41,6 +41,10 @@ def get_cartesian_coordinates(triangle_coordinates, barycentric_coordinates):
     return np.array(barycentric_coordinates)
 
 def is_inside_triangle(triangle_coordinates, point_coordinates):
+    """
+    Calculates whether each lambda is positive. If they are all positive,
+    then the point must be inside the triangle.
+    """
     lambda1 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[0]
     lambda2 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[1]
     lambda3 = get_barycentric_coordinates(triangle_coordinates,point_coordinates)[2]
