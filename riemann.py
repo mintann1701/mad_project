@@ -3,6 +3,18 @@
 #left_endpoint function
 import numpy as np
 def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
+    """
+    This left_endpoint function is used to approximate an integral using the left end point method:
+
+    Parameters
+    __________
+
+    x_vals: np.ndarray => An array of x values used to divide the given interval into smaller sub-intervals
+    func: np.ufunc => The function to approximate the integral of
+
+    Returns
+    Return the left-endpoint sum of the given interval => Approximate the integral
+    """
     width = np.diff(x_vals)
     height = func((x_vals[:-1]))
     return np.sum(width * height)
@@ -16,6 +28,7 @@ def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
 
 #simpson function
 def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:
+    """ """
     a = x_vals[0]
     b = x_vals[-1]
     mid_point = (a + b) / 2
