@@ -35,7 +35,6 @@ def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
     """
     dx = np.diff(x_vals)
     fvalues = func(x_vals)
-
     return np.sum((fvalues[:-1] + fvalues[1:]) / 2 * dx)
 
 #simpson function
