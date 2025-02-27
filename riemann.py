@@ -22,6 +22,17 @@ def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
 
 #trapezoid function
 def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
+    """
+    Computes the integral of a given function using the trapezoidal rule.
+
+    x_vals: A NumPy array of x-values at which the function is evaluated.
+            The values should be sorted in ascending order and represent
+            the intervals over which integration is performed.
+   func: A NumPy universal function that takes an array of x-values
+            and returns the corresponding function values.
+    Returns the approximated integral of the function over the given x-values using
+             the trapezoidal rule.
+    """
     dx = np.diff(x_vals)
     fvalues = func(x_vals)
 

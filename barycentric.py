@@ -36,6 +36,9 @@ def get_cartesian_coordinates(triangle_coordinates, barycentric_coordinates):
     """
     The barycentric coordinates is a 1x3 NumPy array representing (lambda1, lambda2, lambda3
     We want to convert barycentric coordinates to Cartesian coordinates
+    Param: triangle_coordinates and barycentric_coordinates
+    Return A 1x2 NumPy array representing the Cartesian coordinates [x, y] of the given barycentric
+             point in the triangle.
     """
     barycentric_coordinates = np.dot(triangle_coordinates, barycentric_coordinates)
     return np.array(barycentric_coordinates)
