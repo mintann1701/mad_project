@@ -9,8 +9,9 @@ def left_endpoint(x_vals: np.ndarray, func: np.ufunc) -> float:
     Parameters
     __________
 
-    x_vals: np.ndarray => An array of x values used to divide the given interval into smaller sub-intervals
-    func: np.ufunc => The function to approximate the integral of
+    x_vals: np.ndarray => A one-dimensional array of x values used to approximate the integral
+    func: np.ufunc => The function to approximate the integral of. In this method, we want to calculate
+    all the values but the last ([:-1])
 
     Returns
     Return the left-endpoint sum of the given interval => Approximate the integral
@@ -28,7 +29,20 @@ def trapezoid(x_vals: np.ndarray, func: np.ufunc) -> float:
 
 #simpson function
 def simpson(x_vals: np.ndarray, func: np.ufunc) -> float:
-    """ """
+    """
+    This function is used to approximate an integral using the Simpson method:
+
+    Parameters
+    __________
+
+    x_vals: np.ndarray => In this method, we consider the middle points and first and last values
+    func: np.ufunc => The function to approximate the integral of
+
+    Returns
+    _______
+    Return the approximate integral of the function over the interval given
+
+     """
     a = x_vals[0]
     b = x_vals[-1]
     mid_point = (a + b) / 2
